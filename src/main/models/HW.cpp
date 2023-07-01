@@ -7,13 +7,25 @@ class HW
 {
 private:
     string name; // The name of the assignment
-    
+
     int num; // The id of the saaignment. (UNIQUE)
 
-    string date_due; // The date on which the assignment is due
+    string date_due;// The date on which the assignment is due
 
 public:
     HW(int num, string name, string date_due);
+    string GetName() const
+    {
+        return name;
+    };
+    int GetNum() const
+    {
+        return num;
+    };
+    string GetDate_due() const
+    {
+        return date_due;
+    }
 };
 
 // REQUIRES: a unique identifier (num)

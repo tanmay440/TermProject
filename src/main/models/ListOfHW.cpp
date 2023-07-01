@@ -5,12 +5,18 @@ using namespace std;
 class ListOfHW
 {
 private:
-    list<HW> List;
+    list<HW> List = list<HW>;
     HW get_at_position(int i)
     {
         list<HW>::iterator it = this->List.begin();
         advance(it, i - 1);
         return *it;
+    }
+    list<HW>::iterator get_at_position(int i, bool x)
+    {
+        list<HW>::iterator it = this->List.begin();
+        advance(it, i - 1);
+        return it;
     }
 
 public:
@@ -19,12 +25,17 @@ public:
         list<HW> temp(this->List);
         return temp;
     }
-    add_HW(HW)
+    add_HW(HW h)
     {
-        this->List.push_back(HW);
+        this->List.push_back(h);
     }
     del_HW(int del)
     {
-        this->List.remove(get_at_position(del))
+        list<HW>::iterator tempvar = get_at_position(del, false);
+        this->List.erase(tempvar, tempvar);
+    }
+    bool isnull()
+    {
+        return this->List.size() == 0;
     }
 };
